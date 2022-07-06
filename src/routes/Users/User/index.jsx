@@ -15,9 +15,14 @@ export function User()
         deleteUser(user.id);
         navigate("/users");
     }
+
+
+    if(!user)
+        return (<div>El usuario no existe</div>)
+
     return (
         <React.Fragment>
-            <h>{user.name}</h>
+            <h1>{user.name}</h1>
             <div>
                 <strong>phone: </strong>{user.phone}
             </div>

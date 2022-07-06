@@ -1,10 +1,16 @@
 import React from "react";
 import { UserLi } from "../userLi";
 
-export function ListUsers({users}){
+export function ListUsers({users, filter}){
     return (
-        <lu>
-            {users.map((user)=>{
+        <ul>
+            {users.filter(user =>{
+                if(!filter) return true
+                const name = user.name.toLowerCase();
+                
+                return name.includes(filter.toLowerCase())
+
+            }).map((user)=>{
                 
                 const {id,name,username,phone,email,website} = user
 
@@ -20,6 +26,6 @@ export function ListUsers({users}){
                     />
                 )
             })}
-        </lu>
+        </ul>
     )
 }
